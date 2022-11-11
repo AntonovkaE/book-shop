@@ -1,10 +1,19 @@
 const mainBlock = document.querySelector('main');
 const header = document.createElement('header');
+const nav = document.createElement('nav');
+
 const logo = document.createElement('h1');
 const bagBooks = [];
 
 const booksList = document.createElement('ul');
 const booksElements = [];
+const createTextElement = (type, className, textContent = '') => {
+  const elem = document.createElement(type);
+  elem.classList.add(className);
+  elem.textContent = textContent;
+  return elem;
+};
+
 const createButton = (className, text, func) => {
   const button = document.createElement('button');
   button.classList.add(className);
@@ -14,12 +23,13 @@ const createButton = (className, text, func) => {
   return button;
 };
 
-const createTextElement = (type, className, textContent = '') => {
-  const elem = document.createElement(type);
-  elem.classList.add(className);
-  elem.textContent = textContent;
-  return elem;
-};
+const createLink = (className, text, link) => {
+  const linkElem = document.createElement('a')
+  linkElem.classList.add(className);
+  linkElem.textContent = text;
+  linkElem.href = link;
+  return linkElem
+}
 
 const createBookContent = (book, bookItem) => {
   const author = createTextElement('p', 'book__author', book['author']);
@@ -45,51 +55,13 @@ function createPopup() {
   return popup;
 }
 
-const popup = createPopup();
-
-function createContentPopup(book) {
+function createContentPopup(book, popup) {
   const popupHeading = createTextElement('h3', 'popup__heading', book['title']);
   const popupContent = createTextElement('p', 'popup__content', book['description']);
   popup.append(popupContent);
   popup.prepend(popupHeading);
 }
 
-let books;
-fetch('../assets/book.json')
-  .then(response => {
-    return response.json();
-  })
-  .then(data => {
-    books = data;
-    books.forEach((book) => {
-      const bookItem = createTextElement('li', 'book');
-      createBookContent(book, bookItem);
-      const showMoreButton = createButton('showButton', 'Show more', () => {
-        createContentPopup(book)
-        popup.classList.add('popup_open')
-      });
-      const addBook = createButton('addBookButton', 'Add to bag', () => {
-        bagBooks.push(book);
-      });
-      bookItem.append(showMoreButton, addBook);
-      booksElements.push(bookItem);
-    });
-    booksElements.forEach((book) => booksList.append(book));
-    mainBlock.append(booksList);
-
-  });
-
-header.classList.add('header');
-logo.classList.add('header__logo');
-booksList.classList.add('booksCatalog');
-
-logo.textContent = 'Book shop';
-header.prepend(logo);
-
-mainBlock.before(header);
-mainBlock.append(popup);
-
-
-
-
-
+export {
+  mainBlock, header, nav, logo, bagBooks, booksElements, booksList, createLink, createButton, createTextElement, createPopup, createBookContent, createContentPopup
+}
