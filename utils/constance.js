@@ -3,7 +3,7 @@ const header = document.createElement('header');
 const nav = document.createElement('nav');
 
 const logo = document.createElement('h1');
-const bagBooks = [];
+let bagBooks = [];
 
 const booksList = document.createElement('ul');
 const booksElements = [];
@@ -43,6 +43,11 @@ const createBookContent = (book, bookItem) => {
   bookItem.append(author, imageLink, bookTitle, bookPrice);
 };
 
+function deletePopupContent () {
+  document.querySelector('.popup__heading').remove()
+  document.querySelector('.popup__content').remove()
+}
+
 function createPopup() {
   const popup = document.createElement('div');
   popup.classList.add('popup');
@@ -50,6 +55,7 @@ function createPopup() {
   popupHeader.classList.add('popup__header');
   const closePopup = createButton('popup__close', 'x', () => {
     popup.classList.remove('popup_open');
+    deletePopupContent()
   });
   popup.append(popupHeader, closePopup);
   return popup;
@@ -58,8 +64,7 @@ function createPopup() {
 function createContentPopup(book, popup) {
   const popupHeading = createTextElement('h3', 'popup__heading', book['title']);
   const popupContent = createTextElement('p', 'popup__content', book['description']);
-  popup.append(popupContent);
-  popup.prepend(popupHeading);
+  popup.append(popupHeading, popupContent);
 }
 
 export {

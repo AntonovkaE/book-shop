@@ -1,0 +1,21 @@
+.popup {
+    display: none;
+    position: fixed;
+}
+
+.popup_open {
+    background: gray;
+    display: flex;
+    flex-direction: column;
+    top: 5%;
+    left: 5%;
+    right: 5%;
+    bottom: 5%;
+}
+
+.popup__close {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    width: min-content;
+}

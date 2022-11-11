@@ -1,9 +1,21 @@
 import {
-  mainBlock, header, nav, logo, bagBooks, booksElements, booksList, createLink, createButton, createPopup, createBookContent, createTextElement, createContentPopup
-} from '../../utils/constance.js'
+  booksElements,
+  booksList,
+  createBookContent,
+  createButton,
+  createContentPopup,
+  createLink,
+  createPopup,
+  createTextElement,
+  header,
+  logo,
+  mainBlock,
+  nav,
+} from '../../utils/constance.js';
 
+let bagBooks = []
 // const catalogLink = createLink('catalogLink', 'Catalog', '#main')
-const bagLink = createLink('bagLink', 'Bag', '../bag.html')
+const bagLink = createLink('bagLink', 'Bag', '../bag.html');
 
 const popup = createPopup();
 
@@ -22,7 +34,16 @@ fetch('../../vendor/book.json')
         popup.classList.add('popup_open');
       });
       const addBook = createButton('addBookButton', 'Add to bag', () => {
-        bagBooks.push(book);
+        const isBookInBag = bagBooks.some((item) => item['title'] === book['title']);
+        if (isBookInBag) {
+          addBook.classList.add('button_deleteBook');
+          bagBooks = bagBooks.filter(item => item['title'] !== book['title']);
+          addBook.textContent = "Add to bag";
+        } else {
+          bagBooks.push(book);
+          addBook.classList.remove('button_deleteBook');
+          addBook.textContent = "Delete"
+        }
       });
       bookItem.append(showMoreButton, addBook);
       booksElements.push(bookItem);
@@ -33,14 +54,14 @@ fetch('../../vendor/book.json')
   });
 
 header.classList.add('header');
-nav.append( bagLink)
+nav.append(bagLink);
 nav.classList.add('nav');
 logo.classList.add('header__logo');
 booksList.classList.add('booksCatalog');
 
 logo.textContent = 'Book shop';
 
-header.prepend(logo, nav,);
+header.prepend(logo, nav);
 
 mainBlock.before(header);
 mainBlock.append(popup);
