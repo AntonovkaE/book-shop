@@ -1,0 +1,54 @@
+.booksCatalog {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 1000px;
+    margin: 50px auto;
+}
+.book {
+    width: 40%;
+    min-width: 250px;
+    max-width: 300px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    margin: 2%;
+}
+.book__price {
+
+}
+
+.book__price::before {
+    content: 'Price';
+    position: relative;
+    margin: auto 10px auto 2px;
+}
+
+.book__price::after {
+    content: '$';
+    position: relative;
+    margin: auto auto auto 2px;
+}
+
+
+.book__img {
+    width: 250px;
+    height: 300px;
+    object-fit: contain;
+    object-position: center;
+}
+
+.book__author {
+    margin: 10px auto 10px 2px;
+    font-size: 16px;
+    line-height: 20px;
+    height: 20px;
+}
+
+.book__title {
+    margin: 0 2px 5px ;
+    font-size: 18px;
+    line-height: 24px;
+    height: 48px;
+    overflow: hidden;
+}

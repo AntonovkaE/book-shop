@@ -11,13 +11,15 @@ import {
   logo,
   mainBlock,
   nav,
+
 } from '../../utils/constance.js';
 
-let bagBooks = []
+
 // const catalogLink = createLink('catalogLink', 'Catalog', '#main')
-const bagLink = createLink('bagLink', 'Bag', '../bag.html');
+const bagLink = createLink('bagLink', 'Bag', '../bag/bag.html');
 
 const popup = createPopup();
+let bagBooks  = localStorage.books ? JSON.parse(localStorage.books) : [];
 
 let books;
 fetch('../../vendor/book.json')
@@ -44,8 +46,13 @@ fetch('../../vendor/book.json')
           addBook.classList.remove('button_deleteBook');
           addBook.textContent = "Delete"
         }
+        localStorage.setItem('books', JSON.stringify(bagBooks))
       });
-      bookItem.append(showMoreButton, addBook);
+      if (bagBooks.some((item) => item['title'] === book['title'])){
+        addBook.textContent = 'Delete'
+      }
+      addBook.classList.add('btn_withBorder')
+      bookItem.append(addBook, showMoreButton);
       booksElements.push(bookItem);
     });
     booksElements.forEach((book) => booksList.append(book));
@@ -62,11 +69,12 @@ booksList.classList.add('booksCatalog');
 logo.textContent = 'Book shop';
 
 header.prepend(logo, nav);
+console.log(logo.innerHTML)
 
 mainBlock.before(header);
 mainBlock.append(popup);
+console.log(bagBooks)
 
-
-
-
-
+export {
+  bagBooks
+}

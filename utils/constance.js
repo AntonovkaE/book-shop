@@ -17,6 +17,7 @@ const createTextElement = (type, className, textContent = '') => {
 const createButton = (className, text, func) => {
   const button = document.createElement('button');
   button.classList.add(className);
+  button.classList.add('btn')
   button.type = 'button';
   button.onclick = func;
   button.textContent = text;
@@ -40,7 +41,7 @@ const createBookContent = (book, bookItem) => {
   const bookTitle = createTextElement('h3', 'book__title', book['title']);
   const bookPrice = createTextElement('p', 'book__price', book['price']);
   const bookDescription = createTextElement('p', 'book__description', book['description']);
-  bookItem.append(author, imageLink, bookTitle, bookPrice);
+  bookItem.append(imageLink, author, bookTitle, bookPrice);
 };
 
 function deletePopupContent () {

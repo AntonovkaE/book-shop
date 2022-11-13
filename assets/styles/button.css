@@ -1,0 +1,68 @@
+.btn {
+    text-decoration: none;
+    color: #6b5770;
+    background: none;
+    display: block;
+    padding: 14px 30px;
+    position: relative;
+    z-index: 0;
+    border: none;
+    box-sizing: border-box;
+    margin: 10px auto;
+    outline: none;
+    cursor: pointer;
+    user-select: none;
+    appearance: none;
+    touch-action: manipulation;
+
+}
+
+.btn_withBorder {
+    border: 1px solid;
+    border-radius: 5px;
+    background-image: linear-gradient(90deg, #ADFF2F, #006400);
+}
+
+.btn_withBorder:before {
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    background: linear-gradient(90deg, #ADFF2F, #006400);
+    z-index: -2;
+    transition: .4s;
+    border-radius: 5px;
+}
+.btn_withBorder:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #fff, #fff);
+    z-index: -1;
+    transition: .4s;
+    border-radius: 4px;
+}
+.btn:hover {
+    color: black;
+    transition: .3s;
+}
+.btn_withBorder:hover:after {
+    background: linear-gradient(90deg, #ADFF2F, #006400);
+}
+.btn_withBorder:active:after {
+    background: linear-gradient(90deg, #ADFF2F, #006400);
+}
+.btn_withBorder:focus-visible {
+    box-shadow: 0 0 0 3px #ADFF2F;
+}
+.btn:disabled {
+    pointer-events: none;
+}
+.btn:disabled:before {
+    filter: grayscale(100%);
+}
