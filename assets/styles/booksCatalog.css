@@ -9,15 +9,21 @@
 }
 
 .book {
-    width: 40%;
-    min-width: 250px;
-    max-width: 300px;
+    width: 25%;
+    min-width: 200px;
+    max-width: 350px;
     overflow: hidden;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
     margin: 2%;
+    padding: 0 10px;
+    box-sizing: border-box;
 }
-.book__price {
+.book:hover {
+    box-shadow: 0 2px 4px rgba(68, 148, 74, .5);
+}
 
+.book__img:hover {
+    transform: scale(1.1);
 }
 
 .book__price::before {
@@ -35,8 +41,8 @@
 
 .book__img {
     display: flex;
-    width: 250px;
-    height: 300px;
+    width: 100%;
+    height: 250px;
     object-fit: contain;
     object-position: center;
     margin: 0 auto 10px;
@@ -48,6 +54,7 @@
     font-size: 16px;
     line-height: 20px;
     height: 20px;
+    overflow: hidden;
 }
 
 .book__title {
@@ -56,4 +63,19 @@
     line-height: 24px;
     height: 48px;
     overflow: hidden;
+}
+
+.count {
+    font-weight: 500;
+    font-size: 2rem;
+    margin: 0 auto 30px 0;
+}
+
+.count::before {
+    margin: auto 1% auto 5%;
+    content: "Total: $";
+    font-weight: 500;
+    display: inline-block;
+    font-size: 2rem;
+    width: 100px;
 }

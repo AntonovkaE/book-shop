@@ -15,13 +15,12 @@
     appearance: none;
     touch-action: manipulation;
     border: none;
-    width: 190px;
+    width: 180px;
     text-transform: uppercase;
     text-align: center;
 }
 
 .btn_withBorder {
-    /*border: 1px solid;*/
     border-radius: 20px;
     background-image: radial-gradient(#ADFF2F, #006400);
 }
