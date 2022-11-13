@@ -11,16 +11,16 @@ import {
   logo,
   mainBlock,
   nav,
-
+  catalogLink,
+  bagLink
 } from '../../utils/constance.js';
 
 
-// const catalogLink = createLink('catalogLink', 'Catalog', '#main')
-const bagLink = createLink('bagLink', 'Bag', '../bag/bag.html');
-
 const popup = createPopup();
 let bagBooks  = localStorage.books ? JSON.parse(localStorage.books) : [];
-
+catalogLink.classList.add('link_active')
+catalogLink.href = '#main'
+bagLink.href = '../bag/bag.html'
 let books;
 fetch('../../vendor/book.json')
   .then(response => {
@@ -38,12 +38,12 @@ fetch('../../vendor/book.json')
       const addBook = createButton('addBookButton', 'Add to bag', () => {
         const isBookInBag = bagBooks.some((item) => item['title'] === book['title']);
         if (isBookInBag) {
-          addBook.classList.add('button_deleteBook');
+          addBook.classList.remove('btn_delete');
           bagBooks = bagBooks.filter(item => item['title'] !== book['title']);
           addBook.textContent = "Add to bag";
         } else {
           bagBooks.push(book);
-          addBook.classList.remove('button_deleteBook');
+          addBook.classList.add('btn_delete');
           addBook.textContent = "Delete"
         }
         localStorage.setItem('books', JSON.stringify(bagBooks))
@@ -60,20 +60,13 @@ fetch('../../vendor/book.json')
 
   });
 
-header.classList.add('header');
-nav.append(bagLink);
-nav.classList.add('nav');
-logo.classList.add('header__logo');
+
 booksList.classList.add('booksCatalog');
 
-logo.textContent = 'Book shop';
-
 header.prepend(logo, nav);
-console.log(logo.innerHTML)
 
 mainBlock.before(header);
 mainBlock.append(popup);
-console.log(bagBooks)
 
 export {
   bagBooks

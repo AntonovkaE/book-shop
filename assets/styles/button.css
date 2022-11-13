@@ -3,7 +3,7 @@
     color: #6b5770;
     background: none;
     display: block;
-    padding: 14px 30px;
+    padding: 10px 30px;
     position: relative;
     z-index: 0;
     border: none;
@@ -14,13 +14,16 @@
     user-select: none;
     appearance: none;
     touch-action: manipulation;
-
+    border: none;
+    width: 190px;
+    text-transform: uppercase;
+    text-align: center;
 }
 
 .btn_withBorder {
-    border: 1px solid;
-    border-radius: 5px;
-    background-image: linear-gradient(90deg, #ADFF2F, #006400);
+    /*border: 1px solid;*/
+    border-radius: 20px;
+    background-image: radial-gradient(#ADFF2F, #006400);
 }
 
 .btn_withBorder:before {
@@ -51,6 +54,9 @@
     color: black;
     transition: .3s;
 }
+.btn_withBorder:hover {
+    color: #ffffff;
+}
 .btn_withBorder:hover:after {
     background: linear-gradient(90deg, #ADFF2F, #006400);
 }
@@ -65,4 +71,12 @@
 }
 .btn:disabled:before {
     filter: grayscale(100%);
+}
+
+.btn_delete, .btn_delete:before, .btn_delete:hover:after, .btn_delete:active:after {
+    background-image: linear-gradient(to right, #D31027 0%, #EA384D  51%, #D31027  100%);
+}
+
+.btn_hidden {
+    display: none;
 }

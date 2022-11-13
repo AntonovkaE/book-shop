@@ -2,10 +2,17 @@ const mainBlock = document.querySelector('main');
 const header = document.createElement('header');
 const nav = document.createElement('nav');
 
+
 const logo = document.createElement('h1');
-let bagBooks = [];
 
 const booksList = document.createElement('ul');
+
+header.classList.add('header');
+nav.classList.add('nav');
+logo.classList.add('header__logo');
+
+logo.textContent = 'Book shop';
+
 const booksElements = [];
 const createTextElement = (type, className, textContent = '') => {
   const elem = document.createElement(type);
@@ -29,6 +36,7 @@ const createLink = (className, text, link) => {
   linkElem.classList.add(className);
   linkElem.textContent = text;
   linkElem.href = link;
+  linkElem.classList.add('link')
   return linkElem
 }
 
@@ -68,6 +76,11 @@ function createContentPopup(book, popup) {
   popup.append(popupHeading, popupContent);
 }
 
+const catalogLink = createLink('catalogLink', 'Catalog', '#main')
+const bagLink = createLink('bagLink', 'Bag', '../bag/bag.html');
+nav.append(bagLink, catalogLink);
+
+
 export {
-  mainBlock, header, nav, logo, bagBooks, booksElements, booksList, createLink, createButton, createTextElement, createPopup, createBookContent, createContentPopup
+  mainBlock, header, nav, logo, catalogLink, bagLink, booksElements, booksList, createLink, createButton, createTextElement, createPopup, createBookContent, createContentPopup
 }
