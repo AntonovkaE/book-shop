@@ -20,32 +20,61 @@
         </h1>
         <div class="name">
             <div>
-                <label for="f-name">First</label>
-                <input type="text" name="f-name">
+                <label for="f-name">Name</label>
+                <input minlength="4" pattern="[a-zA-Z]" type="text" id="f-name" required>
             </div>
             <div>
-                <label for="l-name">Last</label>
-                <input type="text" name="l-name">
+                <label for="l-name">Surname</label>
+                <input minlength="5" pattern="[a-zA-Z]" type="text" id="l-name">
             </div>
         </div>
-        <div class="street">
-            <label for="name">Street</label>
-            <input type="text" name="address">
+        <div class="delivery-date">
+            <div>
+                <label for="delivery-date">Delivery date</label>
+                <input type="date" id="delivery-date" required>
+            </div>
+
         </div>
-        <div class="address-info">
-            <div>
-                <label for="city">City</label>
-                <input type="text" name="city">
+        <div class="address">
+            <div class="street">
+                <label for="address">Street</label>
+                <input minlength="5" type="text" id="address" required>
             </div>
-            <div>
-                <label for="state">State</label>
-                <input type="text" name="state">
+            <div class="house">
+                <label for="house">House number</label>
+                <input min="1" type="number" id="house" required>
             </div>
-            <div>
-                <label for="zip">Zip</label>
-                <input type="text" name="zip">
+            <div class="flat">
+                <label for="flat">Flat number</label>
+                <input min="0" type="number" id="flat">
             </div>
         </div>
+        <div class="payment">
+            <div>
+                <label for="cash">Cash</label>
+                <input name="payment" type="radio" id="cash">
+            </div>
+            <div>
+                <label for="card">Card</label>
+                <input name="payment" type="radio" id="card">
+            </div>
+        </div>
+
+
+<!--        <div class="address-info">-->
+<!--            <div>-->
+<!--                <label for="city">City</label>-->
+<!--                <input type="text" name="city">-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <label for="state">State</label>-->
+<!--                <input type="text" name="state">-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <label for="zip">Zip</label>-->
+<!--                <input type="text" name="zip">-->
+<!--            </div>-->
+<!--        </div>-->
         <div class="btns">
             <button class="btn btn_withBorder">Purchase</button>
             <a class="btn" href="../bag/bag.html">back to bag</a>

@@ -67,10 +67,20 @@ form h1 {
 /*form h1:nth-of-type(2) {*/
 /*    margin-top: 10%;*/
 /*}*/
-.name {
+.name, .address, .payment {
     justify-content: space-between;
     display: flex;
     width: 100%;
+}
+
+.payment {
+    justify-content: center;
+}
+.street {
+    width: 50%;
+}
+.house, .flat {
+    width: 20%;
 }
 .name div {
     width: 45%;
