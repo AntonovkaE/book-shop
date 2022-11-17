@@ -3,6 +3,7 @@
     justify-content: center;
     background: lightgreen;
     padding: 30px;
+    accent-color: darkgreen;
 }
 
 .wrapper {
@@ -158,4 +159,21 @@ input:focus, button:focus {
         margin: 5px 0;
         min-height: 30px;
     }
+    /*input:invalid {*/
+    /*    border: #D31027 1px solid;*/
+    /*}*/
 }
+.gift-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.gift-label {
+    width: 40%;
+}
+
+.form__submit_inactive {
+    background: grays;
+}
+

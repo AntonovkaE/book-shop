@@ -18,88 +18,91 @@
             <i class="fas fa-shipping-fast"></i>
             Shipping Details
         </h1>
-        <div class="name">
-            <div>
-                <label for="f-name">Name</label>
-                <input minlength="4" pattern="[a-zA-Z]" type="text" id="f-name" required>
+        <fieldset class="form__set">
+            <div class="name">
+                <div>
+                    <label for="f-name">Name</label>
+                    <input class="form__input" minlength="4" type="text" id="f-name" required>
+                </div>
+                <div>
+                    <label for="l-name">Surname</label>
+                    <input class="form__input" minlength="5" type="text" id="l-name" required>
+                </div>
             </div>
-            <div>
-                <label for="l-name">Surname</label>
-                <input minlength="5" pattern="[a-zA-Z]" type="text" id="l-name">
+            <div class="delivery-date">
+                <div>
+                    <label for="delivery-date">Delivery date</label>
+                    <input class="form__input" type="date" id="delivery-date" required>
+                </div>
+
             </div>
-        </div>
-        <div class="delivery-date">
-            <div>
-                <label for="delivery-date">Delivery date</label>
-                <input type="date" id="delivery-date" required>
+            <div class="address">
+                <div class="street">
+                    <label for="address">Street</label>
+                    <input class="form__input" minlength="5" type="text" id="address" required>
+                </div>
+                <div class="house">
+                    <label for="house">House number</label>
+                    <input pattern="[0-9]" class="form__input" min="1" type="number" id="house" required>
+                </div>
+                <div class="flat">
+                    <label for="flat">Flat number</label>
+                    <input class="form__input" min="0" type="number" id="flat" required>
+                </div>
+            </div>
+            <div class="payment">
+                <div>
+                    <label for="cash">Cash</label>
+                    <input class="form__input" name="payment" type="radio" id="cash" required>
+                </div>
+                <div>
+                    <label for="card">Card</label>
+                    <input class="form__input" name="payment" type="radio" id="card" required>
+                </div>
+            </div>
+            <div class="gifts">
+                <div class="gift-wrapper">
+                    <label class="gift-label" for="checkbox-pack">pack as a gift</label>
+                    <input class="form__input gift-checkbox" type="checkbox" id="checkbox-pack">
+                </div>
+                <div class="gift-wrapper">
+                    <label class="gift-label" for="checkbox-postcard">add postcard</label>
+                    <input class="form__input gift-checkbox" type="checkbox" id="checkbox-postcard">
+                </div>
+                <div class="gift-wrapper">
+                    <label class="gift-label" for="checkbox-discount">provide 2% discount to the next time</label>
+                    <input class="form__input gift-checkbox" type="checkbox" id="checkbox-discount">
+                </div>
+                <div class="gift-wrapper">
+                    <label class="gift-label" for="checkbox-pen">branded pen or pencil</label>
+                    <input class="form__input gift-checkbox" type="checkbox" id="checkbox-pen">
+                </div>
+
             </div>
 
-        </div>
-        <div class="address">
-            <div class="street">
-                <label for="address">Street</label>
-                <input minlength="5" type="text" id="address" required>
+            <!--        <div class="address-info">-->
+            <!--            <div>-->
+            <!--                <label for="city">City</label>-->
+            <!--                <input type="text" name="city">-->
+            <!--            </div>-->
+            <!--            <div>-->
+            <!--                <label for="state">State</label>-->
+            <!--                <input type="text" name="state">-->
+            <!--            </div>-->
+            <!--            <div>-->
+            <!--                <label for="zip">Zip</label>-->
+            <!--                <input type="text" name="zip">-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <div class="btns">
+                <button type="submit" class="form__submit btn btn_purchase btn_withBorder">Purchase</button>
+                <a class="btn" href="../bag/bag.html">back to bag</a>
             </div>
-            <div class="house">
-                <label for="house">House number</label>
-                <input min="1" type="number" id="house" required>
-            </div>
-            <div class="flat">
-                <label for="flat">Flat number</label>
-                <input min="0" type="number" id="flat">
-            </div>
-        </div>
-        <div class="payment">
-            <div>
-                <label for="cash">Cash</label>
-                <input name="payment" type="radio" id="cash">
-            </div>
-            <div>
-                <label for="card">Card</label>
-                <input name="payment" type="radio" id="card">
-            </div>
-        </div>
-        <div class="gifts">
-            <div>
-                <label for="checkbox-pack">pack as a gift</label>
-                <input class="gift-checkbox" type="checkbox" id="checkbox-pack">
-            </div>
-            <div>
-                <label for="checkbox-postcard">add postcard</label>
-                <input class="gift-checkbox" type="checkbox" id="checkbox-postcard">
-            </div>
-            <div>
-                <label for="checkbox-discount">provide 2% discount to the next time</label>
-                <input class="gift-checkbox" type="checkbox" id="checkbox-discount">
-            </div>
-            <div>
-                <label for="checkbox-pen">provide 2% discount to the next time</label>
-                <input class="gift-checkbox" type="checkbox" id="checkbox-pen">
-            </div>
-
-        </div>
-
-<!--        <div class="address-info">-->
-<!--            <div>-->
-<!--                <label for="city">City</label>-->
-<!--                <input type="text" name="city">-->
-<!--            </div>-->
-<!--            <div>-->
-<!--                <label for="state">State</label>-->
-<!--                <input type="text" name="state">-->
-<!--            </div>-->
-<!--            <div>-->
-<!--                <label for="zip">Zip</label>-->
-<!--                <input type="text" name="zip">-->
-<!--            </div>-->
-<!--        </div>-->
-        <div class="btns">
-            <button class="btn btn_withBorder">Purchase</button>
-            <a class="btn" href="../bag/bag.html">back to bag</a>
-        </div>
+        </fieldset>
     </form>
 </div>
 <script type="module" src="../../utils/constance.js"></script>
+<script type="module" src="./validation.js"></script>
 <script type="module" src="./script.js"></script>
 </body>
 </html>
