@@ -1,4 +1,4 @@
-const mainBlock = document.querySelector('main');
+const mainBlock = document.createElement('main')
 const header = document.createElement('header');
 const nav = document.createElement('nav');
 

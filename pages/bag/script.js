@@ -8,7 +8,8 @@ import {
 } from '../../utils/constance.js';
 
 const bagBooksElements = [];
-const totalCount = document.createDocumentFragment();
+const mainContent = new DocumentFragment();
+
 
 const count = document.createElement('p');
 let countValue = 0;
@@ -74,3 +75,5 @@ main.append(count)
 
 orderButton.classList.add('btn_withBorder')
 main.append(orderButton)
+mainContent.append(header, main)
+document.querySelector('body').append(mainContent)
