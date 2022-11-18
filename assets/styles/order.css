@@ -6,6 +6,17 @@
     accent-color: darkgreen;
 }
 
+.form__input-error {
+    height: 20px;
+    font-size: 10px;
+    color: #D31027;
+}
+
+.form__input_type_error {
+    border: #D31027 1px solid;
+}
+
+
 .wrapper {
     margin-top: 5%;
     width: 60%;
@@ -72,6 +83,7 @@ form h1 {
     justify-content: space-between;
     display: flex;
     width: 100%;
+    flex-wrap: wrap;
 }
 
 .payment {
@@ -100,34 +112,8 @@ form h1 {
 .cc-info div {
     width: 45%;
 }
-/*.btns {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    align-items: flex-end;*/
-/*}*/
-/*.btns button {*/
-/*    margin: 3px 0;*/
-/*    height: 30px;*/
-/*    width: 40%;*/
-/*    color: #cfc9e1;*/
-/*    background-color: #4a3b76;*/
-/*    text-transform: uppercase;*/
-/*    border: 0;*/
-/*    border-radius: 0.3rem;*/
-/*    letter-spacing: 2px;*/
-/*}*/
-/*.btns button:hover {*/
-/*    animation-name: btn-hov;*/
-/*    animation-duration: 550ms;*/
-/*    animation-fill-mode: forwards;*/
-/*}*/
-/*@keyframes btn-hov {*/
-/*    100% {*/
-/*        background-color: #cfc9e1;*/
-/*        color: #4a3b76;*/
-/*        transform: scale(1.05);*/
-/*    }*/
-/*}*/
+
+
 input:focus, button:focus {
     outline: none;
 }
@@ -159,9 +145,9 @@ input:focus, button:focus {
         margin: 5px 0;
         min-height: 30px;
     }
-    /*input:invalid {*/
-    /*    border: #D31027 1px solid;*/
-    /*}*/
+    .house, .flat {
+        width: 40%;
+    }
 }
 .gift-wrapper {
     display: flex;
@@ -170,10 +156,16 @@ input:focus, button:focus {
 }
 
 .gift-label {
-    width: 40%;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
 }
 
 .form__submit_inactive {
-    background: grays;
+    background: gray;
+}
+.gift-checkbox {
+    width: 20%;
 }
 

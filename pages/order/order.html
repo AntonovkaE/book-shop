@@ -22,32 +22,38 @@
             <div class="name">
                 <div>
                     <label for="f-name">Name</label>
-                    <input class="form__input" minlength="4" type="text" id="f-name" required>
+                    <input class="form__input stringInput" minlength="4" type="text" id="f-name" required>
+                    <span class="form__input-error f-name-error"></span>
                 </div>
                 <div>
                     <label for="l-name">Surname</label>
-                    <input class="form__input" minlength="5" type="text" id="l-name" required>
+                    <input class="form__input stringInput" minlength="5" type="text" id="l-name" required>
+                    <span class="form__input-error l-name-error"></span>
                 </div>
             </div>
             <div class="delivery-date">
                 <div>
                     <label for="delivery-date">Delivery date</label>
                     <input class="form__input" type="date" id="delivery-date" required>
+                    <span class="form__input-error delivery-date-error"></span>
                 </div>
 
             </div>
             <div class="address">
                 <div class="street">
                     <label for="address">Street</label>
-                    <input class="form__input" minlength="5" type="text" id="address" required>
+                    <input class="form__input stringAndNumbersInput" minlength="5" type="text" id="address" required>
+                    <span class="form__input-error address-error"></span>
                 </div>
                 <div class="house">
                     <label for="house">House number</label>
-                    <input pattern="[0-9]" class="form__input" min="1" type="number" id="house" required>
+                    <input class="form__input" min="1" type="number" id="house" required>
+                    <span class="form__input-error house-error"></span>
                 </div>
                 <div class="flat">
                     <label for="flat">Flat number</label>
-                    <input class="form__input" min="0" type="number" id="flat" required>
+                    <input class="form__input flatNumberInput" type="text" id="flat" required>
+                    <span class="form__input-error flat-error"></span>
                 </div>
             </div>
             <div class="payment">
@@ -61,6 +67,7 @@
                 </div>
             </div>
             <div class="gifts">
+                <h3>Choose 2 gifts</h3>
                 <div class="gift-wrapper">
                     <label class="gift-label" for="checkbox-pack">pack as a gift</label>
                     <input class="form__input gift-checkbox" type="checkbox" id="checkbox-pack">
@@ -79,21 +86,6 @@
                 </div>
 
             </div>
-
-            <!--        <div class="address-info">-->
-            <!--            <div>-->
-            <!--                <label for="city">City</label>-->
-            <!--                <input type="text" name="city">-->
-            <!--            </div>-->
-            <!--            <div>-->
-            <!--                <label for="state">State</label>-->
-            <!--                <input type="text" name="state">-->
-            <!--            </div>-->
-            <!--            <div>-->
-            <!--                <label for="zip">Zip</label>-->
-            <!--                <input type="text" name="zip">-->
-            <!--            </div>-->
-            <!--        </div>-->
             <div class="btns">
                 <button type="submit" class="form__submit btn btn_purchase btn_withBorder">Purchase</button>
                 <a class="btn" href="../bag/bag.html">back to bag</a>
