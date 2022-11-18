@@ -21,7 +21,7 @@ bagLink.href = '#main'
 const emptyBagDiv = createTextElement('div', 'emptyBag', 'Your bag is empty')
 const main = document.querySelector('main')
 const books = document.createElement('ul')
-books.classList.add('booksCatalog')
+books.classList.add('bagBooks')
 let bagBooks = localStorage.books ? JSON.parse(localStorage.books) : [];
 const orderButton = createLink('btn', 'Order', '../order/order.html')
 
