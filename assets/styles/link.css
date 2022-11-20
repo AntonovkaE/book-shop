@@ -13,3 +13,7 @@
 .link:hover {
     color: #ADFF2F;
 }
+
+.link_hidden {
+    display: none;
+}

@@ -38,6 +38,7 @@ checkboxInputs.forEach(item => {
     }
   });
 });
+
 const onSubmitForm = () => {
   let gifts = [];
   const { elements } = orderForm;

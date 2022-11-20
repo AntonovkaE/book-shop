@@ -27,13 +27,14 @@ const orderButton = createLink('btn', 'Order', '../order/order.html')
 
 function isBagEmpty (bagBooks) {
   if (!bagBooks.length) {
-    orderButton.classList.add('btn_hidden')
+    orderButton.classList.add('link_hidden')
     emptyBagDiv.classList.remove('emptyBag_hidden')
   } else {
-    orderButton.classList.remove('btn_hidden')
+    orderButton.classList.remove('link_hidden')
     emptyBagDiv.classList.add('emptyBag_hidden')
   }
 }
+isBagEmpty(bagBooks);
 bagBooks.forEach(book => {
   const bookItem = createTextElement('li', 'book');
   createBookContent(book, bookItem);
@@ -44,7 +45,6 @@ bagBooks.forEach(book => {
     bookItem.remove()
     localStorage.setItem('books', JSON.stringify(bagBooks))
     isBagEmpty(bagBooks)
-
     countValue = countValue - book.price;
     localStorage.setItem('count', String(countValue))
     count.textContent = countValue
