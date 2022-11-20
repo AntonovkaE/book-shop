@@ -57,7 +57,6 @@ const onSubmitForm = () => {
   const orderTitle = createTextElement('h2', 'order__title', 'Your order has been placed');
   data.forEach(item => {
     if (item.type === 'checkbox') {
-
     } else {
       if (item.value) {
         const content = item.type === 'radio' ? `payment: ${item.name}` : `${item.name}: ${item.value}`;
