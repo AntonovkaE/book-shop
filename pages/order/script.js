@@ -1,13 +1,14 @@
 import { createTextElement, orderForm, orderInf } from '../../utils/constance.js';
 
 const orderCount = localStorage.count;
+
 let today = new Date();
 const dd = String(today.getDate()).padStart(2, '0');
 const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 const yyyy = today.getFullYear();
 const dateInput = document.getElementById('delivery-date');
 const checkboxInputs = Array.from(document.querySelectorAll('.gift-checkbox'));
-const count = createTextElement('p', 'order__count', orderCount);
+const count = createTextElement('p', 'order__count', `Total cost: ${orderCount}`);
 
 today = yyyy + '-' + mm + '-' + (+dd + 1);
 dateInput.min = today;
@@ -67,6 +68,7 @@ const onSubmitForm = () => {
   });
   orderInf.prepend(orderTitle);
   orderInf.append(count);
+  console.log(count)
 
   orderForm.classList.add('hidden');
   document.querySelector('.order-inf').append(orderInf);
