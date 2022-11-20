@@ -3,20 +3,23 @@ const flatNumberChecking = new RegExp('\^[1-9-0]+$', '')
 const streetChecking  = new RegExp('[a-z1-9]', 'gi')
 const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.add('form__input_type_error');
-  errorElement.textContent = errorMessage.length ? errorMessage : 'The field is invalid';
-  errorElement.classList.add('form__input-error_active');
+  if (errorElement) {
+    inputElement.classList.add('form__input_type_error');
+    errorElement.textContent = errorMessage.length ? errorMessage : 'The field is invalid';
+    errorElement.classList.add('form__input-error_active');
+  }
 };
 
 const hideInputError = (formElement, inputElement) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove('form__input_type_error');
-  errorElement.classList.remove('form__input-error_active');
-  errorElement.textContent = '';
+  if (errorElement) {
+    inputElement.classList.remove('form__input_type_error');
+    errorElement.classList.remove('form__input-error_active');
+    errorElement.textContent = '';
+  }
 };
 
 const checkInputContent = (inputElement) => {
-  console.log('check', inputElement)
   if (inputElement.classList.contains('stringInput')) {
     return stringChecking.test(inputElement.value)
   } else if (inputElement.classList.contains('stringAndNumbersInput')) {
@@ -32,7 +35,6 @@ const checkInputContent = (inputElement) => {
 
 const checkInputValidity = (formElement, inputElement) => {
   if (!inputElement.validity.valid || !checkInputContent(inputElement)) {
-    console.log(inputElement, inputElement.validationMessage)
     showInputError(formElement, inputElement, inputElement.validationMessage);
   } else {
     hideInputError(formElement, inputElement);

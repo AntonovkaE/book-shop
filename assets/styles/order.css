@@ -4,12 +4,30 @@
     background: lightgreen;
     padding: 30px;
     accent-color: darkgreen;
+    box-sizing: border-box;
+}
+fieldset {
+    border: none;
+    width: 90%;
+    margin: 0 auto;
+    max-width: 900px;
+}
+.form__title {
+    font-style: 24px;
+    font-family: Arial;
+    color: darkgreen;
+}
+.form__heading {
+    font-size: 18px;
+    color: darkgreen;
+    font-family: Arial;
 }
 
 .form__input-error {
     height: 20px;
     font-size: 10px;
     color: #D31027;
+    display: flex;
 }
 
 .form__input_type_error {
@@ -169,3 +187,6 @@ input:focus, button:focus {
     width: 20%;
 }
 
+.hidden {
+    display: none;
+}

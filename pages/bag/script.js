@@ -30,7 +30,6 @@ function isBagEmpty (bagBooks) {
     orderButton.classList.add('btn_hidden')
     emptyBagDiv.classList.remove('emptyBag_hidden')
   } else {
-    console.log(bagBooks)
     orderButton.classList.remove('btn_hidden')
     emptyBagDiv.classList.add('emptyBag_hidden')
   }
@@ -39,14 +38,18 @@ bagBooks.forEach(book => {
   const bookItem = createTextElement('li', 'book');
   createBookContent(book, bookItem);
   countValue = countValue + book.price;
+  localStorage.setItem('count', String(countValue))
   const deleteButton = createButton('deleteButton', 'Delete', () => {
     bagBooks = bagBooks.filter(item => item['title'] !== book['title']);
     bookItem.remove()
     localStorage.setItem('books', JSON.stringify(bagBooks))
     isBagEmpty(bagBooks)
+
     countValue = countValue - book.price;
+    localStorage.setItem('count', String(countValue))
     count.textContent = countValue
   })
+
   deleteButton.classList.add('btn_withBorder')
   deleteButton.classList.add('btn_delete');
   bookItem.append(deleteButton)

@@ -57,6 +57,7 @@ fetch('../../vendor/book.json')
       const addBookButton = createButton('addBookButton', 'Add to bag', () => addBook(book, addBookButton));
       if (bagBooks.some((item) => item['title'] === book['title'])) {
         addBookButton.textContent = 'Delete';
+        addBookButton.classList.add('btn_delete')
       }
       addBookButton.classList.add('btn_withBorder');
       bookItem.append(addBookButton, showMoreButton);

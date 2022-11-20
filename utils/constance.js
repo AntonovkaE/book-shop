@@ -2,7 +2,6 @@ const mainBlock = document.createElement('main')
 const header = document.createElement('header');
 const nav = document.createElement('nav');
 
-
 const logo = document.createElement('h1');
 
 const booksList = document.createElement('ul');
@@ -80,7 +79,11 @@ const catalogLink = createLink('catalogLink', 'Catalog', '#main')
 const bagLink = createLink('bagLink', 'Bag', '../bag/bag.html');
 nav.append(bagLink, catalogLink);
 
+const orderForm = document.querySelector('.form_order')
+const orderInf = new DocumentFragment();
+
+
 
 export {
-  mainBlock, header, nav, logo, catalogLink, bagLink, booksElements, booksList, createLink, createButton, createTextElement, createPopup, createBookContent, createContentPopup
+  mainBlock, header, nav, logo, catalogLink, bagLink, booksElements, booksList, createLink, createButton, createTextElement, createPopup, createBookContent, createContentPopup, orderForm, orderInf
 }
