@@ -69,8 +69,6 @@ const onSubmitForm = () => {
   });
   orderInf.prepend(orderTitle);
   orderInf.append(count);
-  console.log(count)
-
   orderForm.classList.add('hidden');
   document.querySelector('.order-inf').append(orderInf);
   document.querySelector('.order-inf').classList.remove('hidden');
